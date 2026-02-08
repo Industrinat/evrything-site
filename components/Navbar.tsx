@@ -55,9 +55,10 @@ export default function Navbar({ transparent = false }: NavbarProps) {
           <a href="/#stader" className={`text-sm font-semibold transition-colors ${showWhite ? 'text-gray-600 hover:text-[var(--blue-600)]' : 'text-white/90 hover:text-white'}`}>Städer</a>
           <a href="/om-oss" className={`text-sm font-semibold transition-colors ${showWhite ? 'text-gray-600 hover:text-[var(--blue-600)]' : 'text-white/90 hover:text-white'}`}>Om oss</a>
           <a href="/miljo" className={`text-sm font-semibold transition-colors ${showWhite ? 'text-gray-600 hover:text-[var(--blue-600)]' : 'text-white/90 hover:text-white'}`}>Miljö</a>
+          <a href="/blogg" className={`text-sm font-semibold transition-colors ${showWhite ? 'text-gray-600 hover:text-[var(--blue-600)]' : 'text-white/90 hover:text-white'}`}>Blogg</a>
           <a href="/kontakt" className={`text-sm font-semibold transition-colors ${showWhite ? 'text-gray-600 hover:text-[var(--blue-600)]' : 'text-white/90 hover:text-white'}`}>Kontakt</a>
         </div>
-        <a href="/kontakt" className={`px-7 py-3 rounded-full font-semibold text-sm transition-all ${showWhite ? 'bg-[var(--blue-500)] text-white hover:bg-[var(--blue-600)] shadow-md shadow-[var(--blue-500)]/20' : 'bg-white text-[var(--blue-700)] hover:bg-white/90 shadow-lg'}`}>Prisförfrågan</a>
+          <a href="/kontakt" className={`px-7 py-3 rounded-full font-semibold text-sm transition-all ${showWhite ? 'bg-[var(--blue-500)] text-white hover:bg-[var(--blue-600)] shadow-md shadow-[var(--blue-500)]/20' : 'bg-white text-[var(--blue-700)] hover:bg-white/90 shadow-lg'}`}>Prisförfrågan</a>
       </div>
     </nav>
   );
