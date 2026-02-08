@@ -1,10 +1,20 @@
 'use client';
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import HeroKenBurns from '@/components/HeroKenBurns'
 import Navbar from '@/components/Navbar'
 import { Truck, Globe, Warehouse, Zap, HandMetal, Package } from 'lucide-react'
+import { Calendar } from 'lucide-react'
 
 export default function Home() {
+  const [news, setNews] = useState<any[]>([])
+  
+  useEffect(() => {
+    fetch('https://flowen.eu/api/public/news?teamSlug=evrything-hemsida&limit=3')
+      .then(r => r.json())
+      .then(data => setNews(data))
+      .catch(() => {})
+  }, [])
   return (
     <main>
       <Navbar transparent={true} />
@@ -160,7 +170,48 @@ export default function Home() {
           </div>
         </div>
       </section>
-
+{/* Blog */}
+      {news.length > 0 && (
+        <section className="py-24 bg-white">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="text-center mb-16">
+              <span className="inline-block px-4 py-1.5 rounded-full bg-[var(--blue-100)] text-[var(--blue-600)] text-sm font-semibold mb-4">Blogg & Nyheter</span>
+              <h2 className="text-3xl md:text-4xl font-bold text-[var(--blue-900)] mb-4">Senaste nytt</h2>
+              <p className="text-gray-500 max-w-xl mx-auto">Nyheter och uppdateringar från Evrything AB</p>
+            </div>
+            <div className="grid md:grid-cols-3 gap-6">
+              {news.map((item: any) => (
+                <a
+                  key={item.id}
+                
+                  href={`/blogg/${item.slug}`}
+                  className="bg-gray-50 rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all group"
+                >
+                  {item.image && (
+                    <div className="relative h-48 overflow-hidden">
+                      <img src={item.image} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    </div>
+                  )}
+                  <div className="p-6">
+                    <div className="flex items-center gap-2 text-sm text-gray-400 mb-3">
+                      <Calendar className="w-4 h-4" />
+                      {item.publishedAt ? new Date(item.publishedAt).toLocaleDateString('sv-SE', { year: 'numeric', month: 'long', day: 'numeric' }) : ''}
+                    </div>
+                    <h3 className="font-bold text-lg text-[var(--blue-900)] mb-2 group-hover:text-[var(--blue-500)] transition-colors">{item.title}</h3>
+                    {item.excerpt && <p className="text-gray-500 text-sm line-clamp-2">{item.excerpt}</p>}
+                  </div>
+                </a>
+              ))}
+            </div>
+            <div className="text-center mt-10">
+              <a href="/blogg" className="inline-flex items-center gap-2 text-[var(--blue-500)] font-semibold hover:text-[var(--blue-700)] transition-colors">
+                Visa alla nyheter
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+              </a>
+            </div>
+          </div>
+        </section>
+      )}
       {/* CTA */}
       <section className="relative py-24 overflow-hidden">
         <div className="absolute inset-0">
