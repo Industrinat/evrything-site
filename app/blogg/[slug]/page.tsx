@@ -1,7 +1,6 @@
 // app/blogg/[slug]/page.tsx
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { getNews, getNewsItem, formatDate } from '@/lib/api';
 import { Calendar, ArrowLeft, Share2 } from 'lucide-react';
@@ -27,26 +26,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return { title: 'Nyhet hittades inte' };
   }
 
-  const imageUrl = item.image 
-    ? (item.image.startsWith('http') ? item.image : `https://industrinat.se${item.image}`)
-    : 'https://industrinat.se/images/hero/IMG_11121.jpg';
+  const imageUrl = item.image || null;
 
   return {
-    title: `${item.title} | Industrinät`,
+    title: `${item.title} | Evrything AB`,
     description: item.excerpt || '',
     openGraph: {
       title: item.title,
       description: item.excerpt || '',
-      url: `https://industrinat.se/blogg/${slug}`,
-      siteName: 'Industrinät',
-      images: [
-        {
-          url: imageUrl,
-          width: 1200,
-          height: 630,
-          alt: item.title,
-        },
-      ],
+      url: `https://evrything.flowen.eu/blogg/${slug}`,
+      siteName: 'Evrything AB',
+      images: imageUrl ? [{ url: imageUrl, width: 1200, height: 630, alt: item.title }] : [],
       locale: 'sv_SE',
       type: 'article',
     },
@@ -54,7 +44,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: 'summary_large_image',
       title: item.title,
       description: item.excerpt || '',
-      images: [imageUrl],
+      images: imageUrl ? [imageUrl] : [],
     },
   };
 }
@@ -74,12 +64,10 @@ export default async function NewsItemPage({ params }: Props) {
     <main>
       <section className="relative h-[400px] bg-gray-900">
         {item.image && (
-          <Image
+          <img
             src={item.image}
             alt={item.title}
-            fill
-            className="object-cover opacity-50"
-            priority
+            className="absolute inset-0 w-full h-full object-cover opacity-50"
           />
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent" />
@@ -141,7 +129,7 @@ export default async function NewsItemPage({ params }: Props) {
                 Dela:
               </span>
               <a
-                href={`https://www.linkedin.com/sharing/share-offsite/?url=https://industrinat.se/blogg/${item.slug}`}
+                href={`https://www.linkedin.com/sharing/share-offsite/?url=https://evrything.flowen.eu/blogg/${item.slug}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-500 hover:text-blue-700 transition-colors"
@@ -149,7 +137,7 @@ export default async function NewsItemPage({ params }: Props) {
                 LinkedIn
               </a>
               <a
-                href={`https://www.facebook.com/sharer/sharer.php?u=https://industrinat.se/blogg/${item.slug}`}
+                href={`https://www.facebook.com/sharer/sharer.php?u=https://evrything.flowen.eu/blogg/${item.slug}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-500 hover:text-blue-600 transition-colors"
@@ -174,11 +162,10 @@ export default async function NewsItemPage({ params }: Props) {
                 >
                   <div className="relative w-32 h-32 flex-shrink-0 bg-gray-200">
                     {related.image && (
-                      <Image
+                      <img
                         src={related.image}
                         alt={related.title}
-                        fill
-                        className="object-cover"
+                        className="w-full h-full object-cover"
                       />
                     )}
                   </div>
@@ -200,10 +187,10 @@ export default async function NewsItemPage({ params }: Props) {
       <section className="py-16 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
-            Behöver ni hjälp med skyddsnät?
+            Behöver ni hjälp med transport och logistik?
           </h2>
           <p className="text-gray-400 mb-8">
-            Kontakta oss för fri rådgivning och offert.
+            Kontakta oss för snabb offert.
           </p>
           <Link
             href="/kontakt"

@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { getNews, formatDate } from '@/lib/api';
 import { Calendar, ArrowLeft } from 'lucide-react';
 
@@ -40,11 +39,10 @@ export default async function BloggPage() {
               >
                 {item.image && (
                   <div className="relative h-48 overflow-hidden">
-                    <Image
+                    <img
                       src={item.image}
                       alt={item.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
                 )}
