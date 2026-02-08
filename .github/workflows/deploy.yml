@@ -1,0 +1,50 @@
+name: Deploy Evrything
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Create env file
+        run: |
+          cat > .env.local << 'ENVEOF'
+          TENANT_ID=build-placeholder
+          CLIENT_ID=build-placeholder
+          CLIENT_SECRET=build-placeholder
+          ENVEOF
+
+      - name: Build
+        run: npm run build
+
+      - name: Package build
+        run: tar -czf build.tar.gz .next public package.json package-lock.json
+
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_deploy
+          chmod 600 ~/.ssh/id_deploy
+          ssh-keyscan -H 162.19.252.99 >> ~/.ssh/known_hosts
+
+      - name: Deploy to server
+        run: |
+          scp -i ~/.ssh/id_deploy build.tar.gz ubuntu@162.19.252.99:/tmp/evrything-build.tar.gz
+          ssh -i ~/.ssh/id_deploy ubuntu@162.19.252.99 << 'REMOTE'
+            cd /var/www/evrything
+            cp -r .next .next.backup-$(date +%Y%m%d_%H%M%S) 2>/dev/null || true
+            tar -xzf /tmp/evrything-build.tar.gz
+            rm /tmp/evrything-build.tar.gz
+            pm2 restart evrything
+          REMOTE
