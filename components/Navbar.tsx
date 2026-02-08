@@ -38,7 +38,7 @@ export default function Navbar({ transparent = false }: NavbarProps) {
             alt="Evrything AB"
             width={180}
             height={45}
-            className={`transition-all duration-300 ${showWhite ? 'h-8 md:h-10 w-auto' : 'h-10 md:h-12 w-auto'}`}
+            className={`transition-all duration-300 ${showWhite ? 'h-10 md:h-14 w-auto' : 'h-12 md:h-16 w-auto'}`}
           />
         </a>
 
