@@ -1,7 +1,7 @@
 // lib/api.ts
 // Hämta nyheter från Flowen API
 
-const FLOWEN_API = 'https://www.flowen.eu/api/public/news'
+const FLOWEN_API = 'https://flowen.eu/api/public/news'
 const TEAM_SLUG = 'evrything-hemsida'
 
 // Konvertera full URL till relativ sökväg för lokala bilder
