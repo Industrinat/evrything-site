@@ -7,16 +7,10 @@ const TEAM_SLUG = 'evrything-hemsida'
 // Konvertera full URL till relativ sökväg för lokala bilder
 function toLocalImagePath(imageUrl: string | null): string | null {
   if (!imageUrl) return null;
-  
-  // Om bilden är från industrinat.se, gör om till relativ sökväg
-  const industrinatPrefix = 'https://evrything.flowen.eu';
-  if (imageUrl.startsWith(industrinatPrefix)) {
-    return imageUrl.replace(industrinatPrefix, '');
-  }
-  
   return imageUrl;
 }
-
+  
+  
 export interface NewsItem {
   id: string
   slug: string
