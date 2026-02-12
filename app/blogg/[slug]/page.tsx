@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getNews, getNewsItem, formatDate } from '@/lib/api';
 import { Calendar, ArrowLeft, Share2 } from 'lucide-react';
+import Navbar from '@/components/Navbar';
 
 export const revalidate = 60;
 
@@ -62,6 +63,7 @@ export default async function NewsItemPage({ params }: Props) {
 
   return (
     <main>
+      <Navbar />
       <section className="relative h-[400px] bg-gray-900">
         {item.image && (
           <img

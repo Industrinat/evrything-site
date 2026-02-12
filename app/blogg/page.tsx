@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { getNews, formatDate } from '@/lib/api';
 import { Calendar, ArrowLeft } from 'lucide-react';
+import Navbar from '@/components/Navbar';
 
 export const metadata = {
   title: 'Blogg - Nyheter från Evrything AB',
@@ -13,7 +14,8 @@ export default async function BloggPage() {
   const news = await getNews();
 
   return (
-    <main className="py-16 bg-white">
+    <main className="pt-28 pb-16 bg-white">
+      <Navbar />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
           <Link href="/" className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-4">
