@@ -67,7 +67,7 @@ export default async function NewsItemPage({ params }: Props) {
           <img
             src={item.image}
             alt={item.title}
-            className="absolute inset-0 w-full h-full object-cover opacity-50"
+            className="absolute inset-0 w-full h-full object-contain opacity-50"
           />
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent" />
