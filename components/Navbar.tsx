@@ -36,7 +36,7 @@ export default function Navbar({ transparent = false }: NavbarProps) {
             alt="Evrything AB"
             width={180}
             height={45}
-            className={`transition-all duration-300 ${scrolled ? 'h-10 md:h-14 w-auto' : 'h-12 md:h-16 w-auto'}`}
+            className={`transition-all duration-300 ${scrolled ? 'h-12 md:h-16 w-auto' : 'h-14 md:h-20 w-auto'}`}
           />
         </a>
 
