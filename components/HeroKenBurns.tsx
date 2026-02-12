@@ -45,8 +45,8 @@ export default function HeroKenBurns() {
             ⚡ Dygnet runt • Hela Sverige, Norden &amp; Europa
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-            Din pålitliga partner inom{' '}
-            <span className="text-[var(--accent)]">transport &amp; logistik</span>
+            När transporter är{' '}
+            <span className="text-yellow-400">som bäst</span>
           </h1>
           <p className="text-white/85 text-lg md:text-xl leading-relaxed mb-8 max-w-xl">
             Expressbud, inrikes- och utrikesfrakt, lager och distribution – snabbt, tryggt och prisvärt från Göteborg.
