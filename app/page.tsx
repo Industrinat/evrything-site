@@ -188,8 +188,8 @@ export default function Home() {
                   className="bg-gray-50 rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all group"
                 >
                   {item.image && (
-                    <div className="relative h-48 overflow-hidden">
-                      <img src={item.image} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <div className="relative h-48 overflow-hidden bg-gray-100">
+                      <img src={item.image} alt={item.title} className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" />
                     </div>
                   )}
                   <div className="p-6">
