@@ -27,7 +27,7 @@ export default function OmOss() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div className="relative">
-              <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-xl">
+              <div className="relative aspect-[2/3] rounded-2xl overflow-hidden shadow-xl">
                 <Image src="/images/marcus-portrait.png" alt="Marcus Lindström - VD Evrything AB" fill className="object-cover" />
               </div>
               <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-xl border border-gray-100">
