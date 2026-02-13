@@ -40,7 +40,8 @@ export default function Home() {
           </div>
         </div>
       </section>
-
+         {/* Interactive Freight Quote — replaces old static "Våra städer" */}
+      <FreightQuote />
       {/* Services */}
       <section id="tjanster" className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6">
@@ -76,8 +77,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Interactive Freight Quote — replaces old static "Våra städer" */}
-      <FreightQuote />
 
       {/* Reviews */}
       <section className="py-24 bg-gray-50">
