@@ -404,16 +404,42 @@ export default function EvrythingFreightQuote() {
   const [gdprConsent, setGdprConsent] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState(null);
+  const [startTime] = useState(Date.now());
 
   const cities = mapMode === "europa" ? EU_CITIES : SE_CITIES;
   const handleFromSelect = useCallback((n) => { setFromText(n); setFromCity(n); }, []);
   const handleToSelect = useCallback((n) => { setToText(n); setToCity(n); }, []);
   const isValid = fromCity && toCity && freightType && speed && name && email && phone && gdprConsent;
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (!isValid) return;
     setSubmitting(true);
-    setTimeout(() => { setSubmitting(false); setSubmitted(true); }, 1200);
+    setSubmitError(null);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name, email, phone, company,
+          transportType: freightType,
+          from: fromCity,
+          to: toCity,
+          message: `Fraktförfrågan via kartan\nFrån: ${fromCity}\nTill: ${toCity}\nTyp: ${freightType}\nHastighet: ${speed}`,
+          website: "", // honeypot — always empty from real users
+          startTime,
+        }),
+      });
+      const result = await res.json();
+      if (res.ok && result.success) {
+        setSubmitted(true);
+      } else {
+        setSubmitError(result.error || "Något gick fel. Försök igen.");
+      }
+    } catch {
+      setSubmitError("Kunde inte skicka. Kontrollera din internetanslutning.");
+    }
+    setSubmitting(false);
   };
 
   const reset = () => {
@@ -590,6 +616,13 @@ export default function EvrythingFreightQuote() {
                   style={{ color: C.accent, textDecoration: "underline" }}>integritetspolicy</a>.
               </span>
             </div>
+
+            {submitError && (
+              <div style={{ padding: "12px 16px", background: "rgba(239,68,68,0.1)", border: "1px solid rgba(239,68,68,0.3)",
+                borderRadius: 10, color: "#f87171", fontSize: 14, display: "flex", alignItems: "center", gap: 8 }}>
+                <span style={{ fontSize: 18 }}>⚠</span> {submitError}
+              </div>
+            )}
 
             <button onClick={handleSubmit} disabled={!isValid || submitting}
               style={{ width: "100%", padding: "15px 24px",
