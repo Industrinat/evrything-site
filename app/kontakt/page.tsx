@@ -189,9 +189,9 @@ export default function Kontakt() {
                       <label className="block text-sm font-semibold text-gray-700 mb-1.5">Meddelande *</label>
                       <textarea name="message" required className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white focus:border-[var(--blue-400)] focus:ring-2 focus:ring-[var(--blue-400)]/20 outline-none transition-all resize-none" rows={5} placeholder="Beskriv ert transportbehov..."></textarea>
                     </div>
-                    <div className="flex items-start gap-3">
-                      <input type="checkbox" name="gdpr" required className="mt-1 w-4 h-4 rounded border-gray-300 text-[var(--blue-500)] focus:ring-[var(--blue-400)]" />
-                      <label className="text-sm text-gray-500">
+                    <div className="flex items-start gap-3 bg-white p-4 rounded-xl border border-gray-200">
+                      <input type="checkbox" name="gdpr" required style={{ minWidth: 20, minHeight: 20, accentColor: '#1a3a6b' }} className="mt-0.5 cursor-pointer" />
+                      <label className="text-sm text-gray-700">
                         Jag godkänner att Evrything AB lagrar mina uppgifter för att hantera min förfrågan. Läs vår{' '}
                         <a href="/integritetspolicy" className="text-[var(--blue-500)] hover:underline">integritetspolicy</a>. *
                       </label>
