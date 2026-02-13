@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import HeroKenBurns from '@/components/HeroKenBurns'
 import Navbar from '@/components/Navbar'
+import FreightQuote from '@/components/FreightQuote'
 import { Truck, Globe, Warehouse, Zap, HandMetal, Package } from 'lucide-react'
 import { Calendar } from 'lucide-react'
 
@@ -96,44 +97,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Cities */}
-      <section id="stader" className="py-24 bg-[var(--blue-600)]">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div>
-              <span className="inline-block px-4 py-1.5 rounded-full bg-white/15 text-white text-sm font-semibold mb-4">Våra städer</span>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Vi kör i hela Norden</h2>
-              <p className="text-white/70 mb-8">Dagliga rutter och expressleveranser till och från dessa orter. Smart samlastning ger prisvärt och miljöeffektivt resultat.</p>
-              <div className="grid grid-cols-2 gap-3">
-                {[
-                  "Göteborg", "Stockholm", "Malmö", "Jönköping",
-                  "Örebro", "Halmstad", "Helsingborg", "Norge", "Danmark"
-                ].map((city, i) => (
-                  <div key={i} className="flex items-center gap-3 text-white py-3 px-4 rounded-lg bg-white/10 hover:bg-white/15 transition-colors">
-                    <svg className="w-4 h-4 text-[var(--accent)] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                    <span className="text-sm font-medium">{city}</span>
-                  </div>
-                ))}
-              </div>
-              <a href="/kontakt" className="inline-flex items-center gap-2 bg-white text-[var(--blue-700)] px-8 py-4 rounded-full font-semibold mt-8 hover:shadow-lg transition-all">
-                Skicka prisförfrågan
-              </a>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              {[
-                "/images/IMG_2818.jpeg",
-                "/images/IMG_3758.jpeg",
-                "/images/IMG_7222.jpeg",
-                "/images/IMG_7232.jpeg",
-              ].map((src, i) => (
-                <div key={i} className={`relative aspect-[3/4] rounded-xl overflow-hidden shadow-lg ${i === 0 ? 'mt-8' : ''}`}>
-                  <Image src={src} alt="Transport" fill className="object-cover" />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Interactive Freight Quote — replaces old static "Våra städer" */}
+      <FreightQuote />
 
       {/* Reviews */}
       <section className="py-24 bg-gray-50">
