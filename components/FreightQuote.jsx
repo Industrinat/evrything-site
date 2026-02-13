@@ -174,13 +174,13 @@ const EU_PATHS = [
   "M 313.5,333.6 L 317.2,324.4 L 315.1,321.4 L 321.2,321.4 L 322.1,315.5 L 327.7,319.1 L 341.7,316.1 L 351.5,313.4 L 357.8,312.5 L 372.9,309.8 L 378.2,311.2 L 384.2,315.1 L 385.6,319.0 L 378.2,330.1 L 367.8,341.6 L 358.1,343.8 L 342.4,346.7 L 329.2,346.1 L 318.0,338.8 Z",
 ];
 
-// ── COLORS (matching evrything dark theme + --accent: #facc15) ──
+// ── COLORS (matching evrything blue theme + --accent: #facc15) ──
 const C = {
-  bg: "#0a0f1a", surface: "#111827", surfaceHover: "#1a2335",
-  border: "#1e293b", borderActive: "#facc15", accent: "#facc15",
+  bg: "#0f2240", surface: "#152d54", surfaceHover: "#1a3a6b",
+  border: "#1e4070", borderActive: "#facc15", accent: "#facc15",
   accentGlow: "rgba(250,204,21,0.15)", accentSoft: "rgba(250,204,21,0.08)",
-  text: "#f1f5f9", textMuted: "#94a3b8", textDim: "#64748b",
-  mapBg: "#0d1420", mapLand: "#1a2744", mapStroke: "#2a3a5c",
+  text: "#f1f5f9", textMuted: "#94a3b8", textDim: "#6b82a8",
+  mapBg: "#0a1628", mapLand: "#1a3a6b", mapStroke: "#2a5090",
   dot: "#facc15", dotHover: "#fde047", white: "#fff",
   from: "#22d3ee", fromGlow: "rgba(34,211,238,0.2)", fromSoft: "rgba(34,211,238,0.1)",
 };
