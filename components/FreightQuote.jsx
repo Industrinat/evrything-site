@@ -401,13 +401,14 @@ export default function EvrythingFreightQuote() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [company, setCompany] = useState("");
+  const [gdprConsent, setGdprConsent] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
   const cities = mapMode === "europa" ? EU_CITIES : SE_CITIES;
   const handleFromSelect = useCallback((n) => { setFromText(n); setFromCity(n); }, []);
   const handleToSelect = useCallback((n) => { setToText(n); setToCity(n); }, []);
-  const isValid = fromCity && toCity && freightType && speed && name && email && phone;
+  const isValid = fromCity && toCity && freightType && speed && name && email && phone && gdprConsent;
 
   const handleSubmit = () => {
     if (!isValid) return;
@@ -417,7 +418,7 @@ export default function EvrythingFreightQuote() {
 
   const reset = () => {
     setSubmitted(false); setToText(""); setToCity(null); setFreightType(null);
-    setSpeed(null); setName(""); setEmail(""); setPhone(""); setCompany("");
+    setSpeed(null); setName(""); setEmail(""); setPhone(""); setCompany(""); setGdprConsent(false);
   };
 
   if (submitted) {
@@ -578,6 +579,16 @@ export default function EvrythingFreightQuote() {
                 <Field label="Telefon" type="tel" value={phone} onChange={setPhone} required placeholder="070-123 45 67" icon={Icons.phone({ size: 12 })} />
                 <Field label="Företag" type="text" value={company} onChange={setCompany} required={false} placeholder="Ditt företag" icon={Icons.building({ size: 12 })} />
               </div>
+            </div>
+
+            <div style={{ display: "flex", alignItems: "flex-start", gap: 10, marginTop: 8 }}>
+              <input type="checkbox" checked={gdprConsent} onChange={(e) => setGdprConsent(e.target.checked)}
+                style={{ marginTop: 3, width: 18, height: 18, accentColor: C.accent, cursor: "pointer", flexShrink: 0 }} />
+              <span style={{ fontSize: 13, color: C.textMuted, lineHeight: 1.5 }}>
+                Jag godkänner att Evrything AB lagrar mina uppgifter för att hantera min förfrågan. Läs vår{" "}
+                <a href="/integritetspolicy" target="_blank" rel="noopener noreferrer"
+                  style={{ color: C.accent, textDecoration: "underline" }}>integritetspolicy</a>.
+              </span>
             </div>
 
             <button onClick={handleSubmit} disabled={!isValid || submitting}
