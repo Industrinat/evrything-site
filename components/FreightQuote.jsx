@@ -81,7 +81,7 @@ const SE_CITIES = [
   { name: "Linköping", x: 108.1, y: 496.0 }, { name: "Västerås", x: 127.7, y: 441.5 },
   { name: "Örebro", x: 99.1, y: 457.0 }, { name: "Norrköping", x: 119.8, y: 487.9 },
   { name: "Helsingborg", x: 45.4, y: 603.2 }, { name: "Jönköping", x: 76.7, y: 524.7 },
-  { name: "Umeå", x: 206.8, y: 249.8 }, { name: "Lund", x: 56.1, y: 619.1 },
+  { name: "Umeå", x: 196.0, y: 249.8 }, { name: "Lund", x: 56.1, y: 619.1 },
   { name: "Borås", x: 50.7, y: 527.4 }, { name: "Sundsvall", x: 143.9, y: 315.2 },
   { name: "Gävle", x: 140.3, y: 393.4 }, { name: "Växjö", x: 90.6, y: 565.5 },
   { name: "Karlstad", x: 62.7, y: 452.0 }, { name: "Luleå", x: 247.1, y: 170.3 },
@@ -89,10 +89,19 @@ const SE_CITIES = [
   { name: "Kalmar", x: 123.7, y: 575.5 }, { name: "Östersund", x: 87.0, y: 279.4 },
   { name: "Kiruna", x: 206.0, y: 66.8 }, { name: "Falun", x: 108.1, y: 396.1 },
   { name: "Skellefteå", x: 221.5, y: 208.0 },
+  { name: "Karlskrona", x: 107.0, y: 598.3 }, { name: "Visby", x: 165.0, y: 531.1 },
+  { name: "Kristianstad", x: 76.2, y: 604.2 }, { name: "Varberg", x: 35.5, y: 555.2 },
+  { name: "Uddevalla", x: 28.7, y: 498.8 }, { name: "Nyköping", x: 137.4, y: 480.6 },
+  { name: "Eskilstuna", x: 126.7, y: 452.5 }, { name: "Skövde", x: 69.8, y: 497.0 },
+  { name: "Mora", x: 84.7, y: 378.4 }, { name: "Karlshamn", x: 91.4, y: 597.9 },
+  { name: "Nässjö", x: 88.0, y: 530.6 }, { name: "Ljungby", x: 71.7, y: 567.9 },
+  { name: "Mariestad", x: 69.1, y: 482.5 }, { name: "Lidköping", x: 55.0, y: 491.6 },
 ];
 
 const SE_PATH = `M 290.0,159.4 L 280.0,139.5 L 285.7,114.5 L 280.4,84.0 L 276.8,63.1 L 273.6,57.7 L 260.4,42.7 L 245.4,38.6 L 236.7,29.1 L 227.7,23.2 L 220.7,19.5 L 215.1,10.0 L 201.9,11.8 L 198.7,41.8 L 172.1,34.5 L 160.8,35.9 L 158.4,34.5 L 152.9,60.0 L 132.4,60.0 L 118.3,92.2 L 114.5,99.9 L 107.2,133.1 L 106.4,143.1 L 95.5,144.5 L 89.5,145.4 L 84.6,145.4 L 83.8,159.9 L 79.7,172.2 L 65.9,215.8 L 75.7,220.8 L 71.6,221.7 L 64.2,239.8 L 51.6,239.8 L 43.1,238.9 L 30.5,275.3 L 35.2,287.1 L 29.2,281.6 L 29.4,342.0 L 37.1,345.7 L 44.1,365.2 L 33.9,376.6 L 37.1,418.4 L 19.4,449.7 L 27.1,458.3 L 23.2,473.8 L 18.5,469.7 L 10.0,475.6 L 12.6,478.8 L 13.2,482.0 L 14.7,485.6 L 16.8,489.7 L 19.0,494.7 L 22.2,501.0 L 23.9,504.7 L 25.6,508.8 L 26.4,516.5 L 26.2,522.4 L 26.2,529.2 L 26.0,536.5 L 26.2,540.1 L 28.6,546.9 L 30.5,554.6 L 34.1,563.3 L 38.6,572.3 L 41.6,580.5 L 44.1,587.3 L 44.1,591.4 L 47.7,595.5 L 48.8,599.1 L 49.9,603.2 L 53.1,607.8 L 54.1,613.2 L 52.0,617.8 L 50.7,622.8 L 50.5,626.4 L 51.2,630.9 L 54.6,633.7 L 58.2,635.0 L 62.7,635.5 L 66.7,633.7 L 69.1,630.9 L 73.3,632.8 L 75.5,632.3 L 77.6,625.9 L 79.7,626.4 L 80.6,624.1 L 82.5,620.5 L 85.5,618.2 L 87.6,605.5 L 88.7,598.2 L 91.0,597.8 L 94.4,596.9 L 98.1,598.2 L 103.2,600.5 L 107.2,599.6 L 110.9,598.2 L 113.4,601.0 L 115.8,596.9 L 118.1,592.8 L 119.8,585.5 L 120.9,580.1 L 123.0,575.5 L 123.9,570.1 L 124.1,563.3 L 124.5,556.9 L 126.6,550.1 L 127.7,541.0 L 128.1,532.4 L 129.4,524.7 L 131.6,518.3 L 133.7,506.0 L 131.3,495.1 L 129.4,488.3 L 127.9,482.0 L 132.6,475.1 L 133.7,471.1 L 139.2,466.1 L 144.6,460.6 L 150.7,460.6 L 155.9,456.1 L 160.1,454.2 L 166.1,450.6 L 170.6,444.7 L 172.3,439.7 L 172.1,433.4 L 169.9,429.3 L 165.0,426.1 L 161.6,422.4 L 157.4,417.5 L 155.0,415.2 L 153.5,410.2 L 152.0,402.9 L 147.1,395.2 L 144.6,390.7 L 140.3,383.4 L 138.8,373.8 L 139.9,362.9 L 141.8,355.2 L 144.6,347.5 L 147.3,341.1 L 149.5,336.6 L 153.7,328.0 L 155.4,320.2 L 157.6,312.5 L 157.1,307.5 L 155.9,298.9 L 153.1,294.8 L 156.1,289.8 L 162.9,284.4 L 168.4,279.4 L 171.0,275.3 L 175.3,267.1 L 172.1,263.5 L 181.7,257.6 L 185.1,252.6 L 190.6,249.4 L 195.3,244.4 L 198.3,239.8 L 201.3,235.3 L 204.5,227.6 L 206.6,220.3 L 214.1,211.7 L 221.5,208.0 L 223.9,204.9 L 226.5,201.7 L 229.9,196.7 L 234.3,190.3 L 235.2,184.4 L 235.4,178.5 L 241.4,170.3 L 247.8,164.0 L 252.5,161.7 L 265.7,166.3 L 277.6,164.4 L 290.0,159.4 Z`;
 const SE_VB = "0 0 300 645";
+const SE_GOTLAND = `M 161.8,517.0 L 174.2,519.3 L 182.1,527.4 L 185.3,537.4 L 178.9,544.3 L 176.1,552.4 L 170.3,555.6 L 162.9,552.0 L 161.1,541.1 L 159.0,530.6 L 160.7,521.5 Z`;
+const SE_OLAND = `M 124.3,560.2 L 127.5,562.4 L 129.7,571.5 L 131.2,580.6 L 130.3,592.0 L 127.5,596.5 L 124.3,594.2 L 123.3,582.9 L 122.2,571.5 L 123.3,564.7 Z`;
 
 const EU_CITIES = [
   { name: "Göteborg", x: 267.1, y: 161.9 }, { name: "Stockholm", x: 334.1, y: 132.1 },
@@ -110,6 +119,32 @@ const EU_CITIES = [
   { name: "Dublin", x: 67.0, y: 236.0 }, { name: "Lyon", x: 188.7, y: 348.8 },
   { name: "Gdansk", x: 340.4, y: 219.7 }, { name: "Rotterdam", x: 184.9, y: 258.7 },
   { name: "Antwerpen", x: 184.0, y: 269.5 }, { name: "Kiel", x: 247.0, y: 220.2 },
+  { name: "Frankfurt", x: 231.0, y: 286.3 }, { name: "Düsseldorf", x: 210.0, y: 269.3 },
+  { name: "Stuttgart", x: 236.5, y: 306.0 }, { name: "Hannover", x: 242.5, y: 251.6 },
+  { name: "Dresden", x: 286.5, y: 272.1 }, { name: "Leipzig", x: 271.5, y: 267.7 },
+  { name: "Marseille", x: 194.7, y: 381.9 }, { name: "Toulouse", x: 151.5, y: 378.0 },
+  { name: "Bordeaux", x: 129.4, y: 361.3 }, { name: "Strasbourg", x: 220.8, y: 309.0 },
+  { name: "Genève", x: 203.1, y: 342.7 }, { name: "Torino", x: 220.1, y: 358.2 },
+  { name: "Firenze", x: 259.2, y: 375.7 }, { name: "Napoli", x: 292.4, y: 413.7 },
+  { name: "Bologna", x: 260.2, y: 366.1 }, { name: "Venezia", x: 271.2, y: 353.2 },
+  { name: "Sevilla", x: 70.1, y: 456.5 }, { name: "Valencia", x: 131.6, y: 431.0 },
+  { name: "Bilbao", x: 103.6, y: 382.5 }, { name: "Lisboa", x: 35.4, y: 440.1 },
+  { name: "Porto", x: 41.2, y: 409.8 }, { name: "Edinburgh", x: 100.7, y: 192.8 },
+  { name: "Manchester", x: 111.1, y: 233.9 }, { name: "Birmingham", x: 114.9, y: 249.7 },
+  { name: "Liverpool", x: 103.0, y: 235.1 }, { name: "Glasgow", x: 89.1, y: 194.4 },
+  { name: "Leeds", x: 118.7, y: 228.7 }, { name: "Bratislava", x: 323.5, y: 315.1 },
+  { name: "Budapest", x: 344.7, y: 324.4 }, { name: "Zagreb", x: 311.1, y: 348.1 },
+  { name: "Ljubljana", x: 295.0, y: 344.8 }, { name: "Kraków", x: 354.6, y: 287.1 },
+  { name: "Wrocław", x: 322.8, y: 271.2 }, { name: "Poznań", x: 321.5, y: 251.0 },
+  { name: "Szczecin", x: 295.4, y: 234.7 }, { name: "Linköping", x: 307.3, y: 149.2 },
+  { name: "Jönköping", x: 291.1, y: 160.6 }, { name: "Sundsvall", x: 325.7, y: 71.6 },
+  { name: "Umeå", x: 358.1, y: 41.0 }, { name: "Luleå", x: 378.8, y: 15.0 },
+  { name: "Stavanger", x: 198.6, y: 138.8 }, { name: "Bergen", x: 194.1, y: 111.8 },
+  { name: "Trondheim", x: 249.9, y: 49.7 }, { name: "Aarhus", x: 247.8, y: 189.4 },
+  { name: "Aalborg", x: 244.6, y: 173.7 }, { name: "Odense", x: 249.8, y: 202.2 },
+  { name: "Tampere", x: 396.5, y: 89.8 }, { name: "Turku", x: 380.2, y: 110.6 },
+  { name: "Oulu", x: 415.3, y: 15.0 }, { name: "Nürnberg", x: 257.3, y: 296.1 },
+  { name: "Köln", x: 212.1, y: 273.8 },
 ];
 const EU_VB = "0 0 480 500";
 
@@ -214,9 +249,11 @@ const InteractiveMap = ({ mapMode, fromCity, toCity, onSelectFrom, onSelectTo, a
         <ellipse cx="150" cy="340" rx="130" ry="320" fill="url(#glow)" />
         <path d={SE_PATH} fill={C.mapLand} stroke={C.mapStroke} strokeWidth="1.2"
           style={{ filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.3))" }} />
+        <path d={SE_GOTLAND} fill={C.mapLand} stroke={C.mapStroke} strokeWidth="1" />
+        <path d={SE_OLAND} fill={C.mapLand} stroke={C.mapStroke} strokeWidth="1" />
       </>}
       {isEU && <>
-        <rect width="464" height="500" fill="transparent" />
+        <rect width="480" height="500" fill="transparent" />
         {EU_PATHS.map((d, i) => (
           <path key={i} d={d} fill={C.mapLand} stroke={C.mapStroke} strokeWidth="0.8"
             strokeLinejoin="round" opacity={0.85} />
