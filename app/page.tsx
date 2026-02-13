@@ -24,8 +24,7 @@ export default function Home() {
       <HeroKenBurns />
 
       {/* Stats */}
-      <section className="relative z-20 -mt-12">
-        <div className="max-w-5xl mx-auto px-6">
+      <section className="relative z-20 -mt-12">        <div className="max-w-5xl mx-auto px-6">
           <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8 md:p-10 grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { number: "24/7", label: "Tillgänglighet" },
@@ -74,26 +73,6 @@ export default function Home() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Image Gallery Strip */}
-      <section className="py-6 bg-[var(--blue-50)] overflow-hidden">
-        <div className="flex gap-4 animate-scroll">
-          {[
-            "/images/IMG_0086.jpeg",
-            "/images/IMG_0099.jpeg",
-            "/images/IMG_1491.jpeg",
-            "/images/IMG_1524.jpeg",
-            "/images/IMG_2744.jpeg",
-            "/images/IMG_2749.jpeg",
-            "/images/IMG_2946.jpeg",
-            "/images/IMG_3522.jpeg",
-          ].map((src, i) => (
-            <div key={i} className="relative w-72 h-48 flex-shrink-0 rounded-xl overflow-hidden shadow-md">
-              <Image src={src} alt="Evrything transport" fill className="object-cover" />
-            </div>
-          ))}
         </div>
       </section>
 
