@@ -23,23 +23,6 @@ export default function Home() {
       {/* Hero Ken Burns */}
       <HeroKenBurns />
 
-      {/* Stats */}
-      <section className="relative z-20 -mt-12">        <div className="max-w-5xl mx-auto px-6">
-          <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8 md:p-10 grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[
-              { number: "24/7", label: "Tillgänglighet" },
-              { number: "100%", label: "Kundnöjdhet" },
-              { number: "9+", label: "Städer i Norden" },
-              { number: "10+", label: "År i branschen" },
-            ].map((stat, i) => (
-              <div key={i} className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-[var(--blue-500)]">{stat.number}</div>
-                <div className="text-gray-500 text-sm mt-1">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
          {/* Interactive Freight Quote — replaces old static "Våra städer" */}
       <FreightQuote />
       {/* Services */}
