@@ -481,7 +481,7 @@ export default function EvrythingFreightQuote() {
         .freight-section input::placeholder{color:${C.textDim}}
       `}</style>
 
-      <div className="freight-section" style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
+      <div className="freight-section" style={{ maxWidth: 1200, margin: "0 auto", padding: "0 16px" }}>
         {/* Header */}
         <div style={{ textAlign: "center", marginBottom: 48, animation: "fadeIn 0.6s ease" }}>
           <div style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "6px 16px",

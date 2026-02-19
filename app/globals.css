@@ -89,3 +89,13 @@ body {
     order: 1;
   }
 }
+@media (max-width: 768px) {
+  .freight-section input,
+  .freight-section button {
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+  .freight-section > div {
+    padding: 0 16px;
+  }
+}s
