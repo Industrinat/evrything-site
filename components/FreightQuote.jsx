@@ -332,8 +332,8 @@ useEffect(() => {
   );
 };
 
-const FreightBtn = ({ label, selected, onClick, icon, isMobile }) => (
-  <button onClick={onClick} style={{ flex: isMobile ? "1 1 40%" : 1, padding: "14px 6px",
+const FreightBtn = ({ label, selected, onClick, icon }) => (
+  <button onClick={onClick} style={{ flex: "1 1 40%", padding: "14px 6px",
     background: selected ? C.accentGlow : C.surface,
     border: `1.5px solid ${selected ? C.borderActive : C.border}`, borderRadius: 10,
     color: selected ? C.accent : C.textMuted, fontSize: 12, fontWeight: selected ? 600 : 400,
