@@ -498,8 +498,7 @@ export default function EvrythingFreightQuote() {
         </div>
 
         {/* Main layout */}
-        <div style={{ display: "grid", gridTemplateColumns: "minmax(240px, 380px) minmax(340px, 520px)",
-          gap: 40, alignItems: "start", justifyContent: "center", animation: "slideUp 0.7s ease" }}>
+<div className="freight-grid" style={{ animation: "slideUp 0.7s ease" }}>
 
           {/* Left: Map */}
           <div>
@@ -650,3 +649,4 @@ export default function EvrythingFreightQuote() {
     </section>
   );
 }
+

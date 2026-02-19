@@ -69,3 +69,15 @@ body {
 .animate-kb-3 { animation: kb3 6s ease-out forwards; }
 .animate-kb-4 { animation: kb4 6s ease-out forwards; }
 .animate-kb-5 { animation: kb5 6s ease-out forwards; }
+.freight-grid {
+  display: grid;
+  grid-template-columns: minmax(240px, 380px) minmax(340px, 520px);
+  gap: 40px;
+  align-items: start;
+  justify-content: center;
+}
+@media (max-width: 768px) {
+  .freight-grid {
+    grid-template-columns: 1fr;
+  }
+}
