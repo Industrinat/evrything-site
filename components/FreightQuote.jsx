@@ -587,10 +587,10 @@ export default function EvrythingFreightQuote() {
             <div>
               <Step n="2" label="Typ av gods" done={!!freightType} icon={Icons.package({ size: 16 })} />
               <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-                <FreightBtn label="Pall" icon={Icons.pallet({ size: 22 })} selected={freightType === "pall"} onClick={() => setFreightType("pall")} isMobile={isMobile} />
-                <FreightBtn label="Parti" icon={Icons.package({ size: 22 })} selected={freightType === "parti"} onClick={() => setFreightType("parti")} isMobile={isMobile} />
-                <FreightBtn label="Paket" icon={Icons.box({ size: 22 })} selected={freightType === "paket"} onClick={() => setFreightType("paket")} isMobile={isMobile} />
-                <FreightBtn label="Övrigt" icon={Icons.wrench({ size: 22 })} selected={freightType === "övrigt"} onClick={() => setFreightType("övrigt")} isMobile={isMobile} />
+                <FreightBtn label="Pall" icon={Icons.pallet({ size: 22 })} selected={freightType === "pall"} onClick={() => setFreightType("pall")} />
+                <FreightBtn label="Parti" icon={Icons.package({ size: 22 })} selected={freightType === "parti"} onClick={() => setFreightType("parti")} />
+                <FreightBtn label="Paket" icon={Icons.box({ size: 22 })} selected={freightType === "paket"} onClick={() => setFreightType("paket")} />
+                <FreightBtn label="Övrigt" icon={Icons.wrench({ size: 22 })} selected={freightType === "övrigt"} onClick={() => setFreightType("övrigt")} />
               </div>
             </div>
 
@@ -605,7 +605,7 @@ export default function EvrythingFreightQuote() {
             {/* Step 4: Contact */}
             <div>
               <Step n="4" label="Kontaktuppgifter" done={name && email && phone} icon={Icons.user({ size: 16 })} />
-              <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: 10 }}>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 10 }}>
                 <Field label="Namn" type="text" value={name} onChange={setName} required placeholder="Ditt namn" icon={Icons.user({ size: 12 })} />
                 <Field label="E-post" type="email" value={email} onChange={setEmail} required placeholder="din@epost.se" icon={Icons.mail({ size: 12 })} />
                 <Field label="Telefon" type="tel" value={phone} onChange={setPhone} required placeholder="070-123 45 67" icon={Icons.phone({ size: 12 })} />
