@@ -80,4 +80,12 @@ body {
   .freight-grid {
     grid-template-columns: 1fr;
   }
+  .freight-grid > div:first-child {
+    order: 2;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  .freight-grid > div:last-child {
+    order: 1;
+  }
 }
