@@ -53,7 +53,7 @@ export default function HeroKenBurns() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <a
-              href="#kontakt"
+              href="/kontakt"
               className="inline-flex items-center justify-center gap-2 bg-[var(--blue-500)] hover:bg-[var(--blue-600)] text-white font-semibold px-8 py-4 rounded-full transition-colors shadow-lg"
             >
               Skicka förfrågan
