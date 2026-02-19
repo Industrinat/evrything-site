@@ -290,6 +290,13 @@ const Autocomplete = ({ value, onChange, onSelect, placeholder, cities, color = 
   };
   const bc = color === C.from ? C.from : C.borderActive;
   const glow = color === C.from ? C.fromGlow : C.accentGlow;
+  const [isMobile, setIsMobile] = useState(false);
+useEffect(() => {
+  const check = () => setIsMobile(window.innerWidth < 768);
+  check();
+  window.addEventListener('resize', check);
+  return () => window.removeEventListener('resize', check);
+}, []);
   return (
     <div style={{ position: "relative" }}>
       <div style={{ position: "relative" }}>
@@ -326,7 +333,7 @@ const Autocomplete = ({ value, onChange, onSelect, placeholder, cities, color = 
 };
 
 const FreightBtn = ({ label, selected, onClick, icon }) => (
-  <button onClick={onClick} style={{ flex: 1, padding: "14px 6px",
+  <button onClick={onClick} style={{ flex: "1 1 40%", padding: "14px 6px",
     background: selected ? C.accentGlow : C.surface,
     border: `1.5px solid ${selected ? C.borderActive : C.border}`, borderRadius: 10,
     color: selected ? C.accent : C.textMuted, fontSize: 12, fontWeight: selected ? 600 : 400,
@@ -579,7 +586,7 @@ export default function EvrythingFreightQuote() {
             {/* Step 2: Freight type */}
             <div>
               <Step n="2" label="Typ av gods" done={!!freightType} icon={Icons.package({ size: 16 })} />
-              <div style={{ display: "flex", gap: 8 }}>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
                 <FreightBtn label="Pall" icon={Icons.pallet({ size: 22 })} selected={freightType === "pall"} onClick={() => setFreightType("pall")} />
                 <FreightBtn label="Parti" icon={Icons.package({ size: 22 })} selected={freightType === "parti"} onClick={() => setFreightType("parti")} />
                 <FreightBtn label="Paket" icon={Icons.box({ size: 22 })} selected={freightType === "paket"} onClick={() => setFreightType("paket")} />
@@ -598,7 +605,7 @@ export default function EvrythingFreightQuote() {
             {/* Step 4: Contact */}
             <div>
               <Step n="4" label="Kontaktuppgifter" done={name && email && phone} icon={Icons.user({ size: 16 })} />
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
+              <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: 10 }}>
                 <Field label="Namn" type="text" value={name} onChange={setName} required placeholder="Ditt namn" icon={Icons.user({ size: 12 })} />
                 <Field label="E-post" type="email" value={email} onChange={setEmail} required placeholder="din@epost.se" icon={Icons.mail({ size: 12 })} />
                 <Field label="Telefon" type="tel" value={phone} onChange={setPhone} required placeholder="070-123 45 67" icon={Icons.phone({ size: 12 })} />
