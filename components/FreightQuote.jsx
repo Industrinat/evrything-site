@@ -332,8 +332,8 @@ useEffect(() => {
   );
 };
 
-const FreightBtn = ({ label, selected, onClick, icon }) => (
-  <button onClick={onClick} style={{ flex: "1 1 40%", padding: "14px 6px",
+const FreightBtn = ({ label, selected, onClick, icon, isMobile }) => (
+  <button onClick={onClick} style={{ flex: isMobile ? "1 1 40%" : 1, padding: "14px 6px",
     background: selected ? C.accentGlow : C.surface,
     border: `1.5px solid ${selected ? C.borderActive : C.border}`, borderRadius: 10,
     color: selected ? C.accent : C.textMuted, fontSize: 12, fontWeight: selected ? 600 : 400,
@@ -587,10 +587,10 @@ export default function EvrythingFreightQuote() {
             <div>
               <Step n="2" label="Typ av gods" done={!!freightType} icon={Icons.package({ size: 16 })} />
               <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-                <FreightBtn label="Pall" icon={Icons.pallet({ size: 22 })} selected={freightType === "pall"} onClick={() => setFreightType("pall")} />
-                <FreightBtn label="Parti" icon={Icons.package({ size: 22 })} selected={freightType === "parti"} onClick={() => setFreightType("parti")} />
-                <FreightBtn label="Paket" icon={Icons.box({ size: 22 })} selected={freightType === "paket"} onClick={() => setFreightType("paket")} />
-                <FreightBtn label="Övrigt" icon={Icons.wrench({ size: 22 })} selected={freightType === "övrigt"} onClick={() => setFreightType("övrigt")} />
+                <FreightBtn label="Pall" icon={Icons.pallet({ size: 22 })} selected={freightType === "pall"} onClick={() => setFreightType("pall")} isMobile={isMobile} />
+                <FreightBtn label="Parti" icon={Icons.package({ size: 22 })} selected={freightType === "parti"} onClick={() => setFreightType("parti")} isMobile={isMobile} />
+                <FreightBtn label="Paket" icon={Icons.box({ size: 22 })} selected={freightType === "paket"} onClick={() => setFreightType("paket")} isMobile={isMobile} />
+                <FreightBtn label="Övrigt" icon={Icons.wrench({ size: 22 })} selected={freightType === "övrigt"} onClick={() => setFreightType("övrigt")} isMobile={isMobile} />
               </div>
             </div>
 
@@ -656,4 +656,3 @@ export default function EvrythingFreightQuote() {
     </section>
   );
 }
-
