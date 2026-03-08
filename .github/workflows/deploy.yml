@@ -44,6 +44,7 @@ jobs:
           ssh -i ~/.ssh/id_deploy ubuntu@162.19.252.99 << 'REMOTE'
             cd /var/www/evrything
             cp -r .next .next.backup-$(date +%Y%m%d_%H%M%S) 2>/dev/null || true
+            ls -dt .next.backup-* 2>/dev/null | tail -n +3 | xargs rm -rf 2>/dev/null || true
             tar -xzf /tmp/evrything-build.tar.gz
             rm /tmp/evrything-build.tar.gz
             pm2 restart evrything
