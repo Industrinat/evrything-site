@@ -194,7 +194,7 @@ export default function Home() {
               <h4 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">Kontakt</h4>
               <ul className="space-y-2 text-sm">
                 <li><a href="tel:+46722948560" className="hover:text-white transition-colors">072-294 85 60</a></li>
-                <li><a href="mailto:booking@evrything.se" className="hover:text-white transition-colors">booking@evrything.se</a></li>
+                <li><a href="mailto:boka@evrything.se" className="hover:text-white transition-colors">boka@evrything.se</a></li>
                 <li><a href="/kontakt" className="hover:text-white transition-colors">Prisförfrågan</a></li>
                 <li><a href="/om-oss" className="hover:text-white transition-colors">Om oss</a></li>
               </ul>

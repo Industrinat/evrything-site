@@ -149,7 +149,7 @@ export async function POST(request: NextRequest) {
           message: {
             subject: `🚚 Prisförfrågan: ${name}${company ? ` – ${company}` : ''} (${transportType || 'Transport'})`,
             body: { contentType: 'Text', content: emailBody },
-            toRecipients: [{ emailAddress: { address: 'booking@evrything.se' } }],
+            toRecipients: [{ emailAddress: { address: 'boka@evrything.se' } }],
             ccRecipients: [{ emailAddress: { address: 'daniel.olsson@industrinat.se' } }],
             replyTo: [{ emailAddress: { address: email, name: name } }],
           },
@@ -163,7 +163,7 @@ export async function POST(request: NextRequest) {
       throw new Error('Failed to send email');
     }
 
-    console.log('📧 Mail skickat till booking@evrything.se');
+    console.log('📧 Mail skickat till boka@evrything.se');
 
     return NextResponse.json({
       success: true,

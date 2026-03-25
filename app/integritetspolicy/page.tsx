@@ -27,7 +27,7 @@ export default function Integritetspolicy() {
           <p className="text-gray-600 mb-4">
             Evrything AB (org.nr 559XXX-XXXX)<br />
             Göteborg, Sverige<br />
-            E-post: <a href="mailto:booking@evrything.se" className="text-[var(--blue-500)] hover:underline">booking@evrything.se</a><br />
+            E-post: <a href="mailto:boka@evrything.se" className="text-[var(--blue-500)] hover:underline">boka@evrything.se</a><br />
             Telefon: <a href="tel:+46722948560" className="text-[var(--blue-500)] hover:underline">072-294 85 60</a>
           </p>
 
@@ -80,7 +80,7 @@ export default function Integritetspolicy() {
             <li><strong>Invändning</strong> – invända mot behandling baserad på berättigat intresse</li>
           </ul>
           <p className="text-gray-600 mb-4">
-            Kontakta oss på <a href="mailto:booking@evrything.se" className="text-[var(--blue-500)] hover:underline">booking@evrything.se</a> för att utöva dina rättigheter. Vi svarar inom 30 dagar.
+            Kontakta oss på <a href="mailto:boka@evrything.se" className="text-[var(--blue-500)] hover:underline">boka@evrything.se</a> för att utöva dina rättigheter. Vi svarar inom 30 dagar.
           </p>
 
           <h2 className="text-2xl font-bold text-[var(--blue-900)] mt-10 mb-4">7. Cookies</h2>
