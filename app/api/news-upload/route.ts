@@ -2,8 +2,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { writeFile, mkdir } from 'fs/promises'
 import { join } from 'path'
-
-const API_KEY = process.env.NEWS_UPLOAD_API_KEY || 'evrything-flowen-2026'
+import { randomBytes } from 'crypto'
+import { detectFileType } from '@/lib/file-type'
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': 'https://flowen.eu',
@@ -17,8 +17,12 @@ export async function OPTIONS() {
 
 export async function POST(request: NextRequest) {
   try {
+    const apiKey = process.env.NEWS_UPLOAD_API_KEY
+    if (!apiKey) {
+      return NextResponse.json({ error: 'NEWS_UPLOAD_API_KEY is not configured' }, { status: 503, headers: corsHeaders })
+    }
     const authHeader = request.headers.get('x-api-key')
-    if (authHeader !== API_KEY) {
+    if (authHeader !== apiKey) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401, headers: corsHeaders })
     }
     const formData = await request.formData()
@@ -26,28 +30,18 @@ export async function POST(request: NextRequest) {
     if (!file) {
       return NextResponse.json({ error: 'No file provided' }, { status: 400, headers: corsHeaders })
     }
-    const allowedTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif']
-    if (!allowedTypes.includes(file.type)) {
-      return NextResponse.json({ error: 'Invalid file type. Only JPG, PNG, WebP, GIF allowed.' }, { status: 400, headers: corsHeaders })
-    }
     if (file.size > 10 * 1024 * 1024) {
       return NextResponse.json({ error: 'File too large. Max 10MB.' }, { status: 400, headers: corsHeaders })
     }
-    const timestamp = Date.now()
-    const extension = file.name.split('.').pop()?.toLowerCase() || 'jpg'
-    const safeName = file.name
-      .replace(/\.[^/.]+$/, '')
-      .toLowerCase()
-      .replace(/[åä]/g, 'a')
-      .replace(/ö/g, 'o')
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/^-|-$/g, '')
-      .substring(0, 50)
-    const fileName = `${safeName}-${timestamp}.${extension}`
+    const buffer = Buffer.from(await file.arrayBuffer())
+    const detected = detectFileType(buffer)
+    if (!detected) {
+      return NextResponse.json({ error: 'Invalid file type. Only JPG, PNG, WebP, GIF allowed.' }, { status: 400, headers: corsHeaders })
+    }
+    const fileName = `${Date.now()}-${randomBytes(8).toString('hex')}.${detected.ext}`
     const uploadDir = join(process.cwd(), 'public', 'images', 'nyheter')
     await mkdir(uploadDir, { recursive: true })
     const filePath = join(uploadDir, fileName)
-    const buffer = Buffer.from(await file.arrayBuffer())
     await writeFile(filePath, buffer)
     console.log(`News image uploaded: ${fileName}`)
     return NextResponse.json({
